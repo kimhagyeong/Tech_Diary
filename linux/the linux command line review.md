@@ -1,0 +1,60 @@
+## 하둡과 서버는 리눅스! 리눅스 명령어 리뷰
+
+``The Linux Command Line 책 리뷰!``
+
+- ls -l
+
+"-l"은 디테일하게 보겠다는 뜻
+
+- cd ~
+
+"~" 는 홈디렉터리
+
+- ls -lt
+
+"l" 은 디테일하게 보겠다, "t"는 옵션과 파일의 수정 시간을 기준을 나열하겠다. 합쳐서 "-lt" 디테일하게 시간순으로
+
+- ls -lt --reverse
+
+mac에서는 "-reverse", 단간하게 "r"만 쓸 수 있음
+
+- less ha.txt
+
+내용 출력. exit less 하려면 press "q"  
+G면 마지막 위치, g는 첫 위치  
+b면 page up, 스페이스는 page down
+
+- root, boot, bin, etc
+
+https://wlgnschlkkk.tistory.com/62
+
+- cp : Copy files and directories  
+- mv : Move/rename files and directories  
+- mkdir : Create directories  
+- rm : Remove files and directories   
+- ln : Create hard and symbolic links  
+
+
+about whildcard
+
+- ``*`` : All files
+- g* : Any file beginning with “g”
+- b*.txt : Any file beginning with “b” followed by any characters and ending with “.txt”
+- Data??? : Any file beginning with “Data” followed by exactly three characters
+- [abc]* : Any file beginning with either an “a”, a “b”, or a “c”
+- BACKUP.[0-9][0-9][0-9] : Any file beginning with “BACKUP.” followed by exactly three numerals
+- [[:upper:]]* : Any file beginning with an uppercase letter Any file not beginning with a numeral
+- [![:digit:]]* : Any file not beginning with a numeral
+- *[[:lower:]123] : Any file ending with a lowercase letter or the numerals “1”, “2”, or “3”
+
+
+- cp item... directory
+
+to copy multiple items (either files or directories) into a directory.  
+cp 옵션은 -a, -r, -i, -u, -v 등이 있는데, 주로 -r 을 많이 사용한다.  
+-r 은 recursive 라는 뜻으로 디렉토리를 복사할 때 사용한다.  
+옵션들에 대한 자세한 내용은 "the linux command line" 53page 참고
+
+
+(작성중..)
+
