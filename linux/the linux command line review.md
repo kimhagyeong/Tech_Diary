@@ -77,12 +77,26 @@ $(())를 사용해서 Arithmetic표현할 수도 있다.
 Permissions
 
 - id – Display user identity  
-- chmod – Change a file's mode  
+- chmod – Change a file's mode  -> owner group world
 - umask – Set the default file permissions  
 - su – Run a shell as another user  
 - sudo – Execute a command as another user  
 - chown – Change a file's owner  
 - chgrp – Change a file's group ownership  
 - passwd – Change a user's password  
+
+
+
+Processes
+
+
+- ps – Report a snapshot of current processes. 
+- top – Display tasks. 
+- jobs – List active jobs. 
+- bg – Place a job in the background. 
+- fg – Place a job in the foreground. 
+- kill – Send a signal to a process. 
+- killall – Kill processes by name. 
+- shutdown – Shutdown or reboot the system. 
 
 
