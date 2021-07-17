@@ -53,8 +53,15 @@ about whildcard
 to copy multiple items (either files or directories) into a directory.  
 cp 옵션은 -a, -r, -i, -u, -v 등이 있는데, 주로 -r 을 많이 사용한다.  
 -r 은 recursive 라는 뜻으로 디렉토리를 복사할 때 사용한다.  
-옵션들에 대한 자세한 내용은 "the linux command line" 53page 참고
+옵션들에 대한 자세한 내용은 "the linux command line" 53page 참고. 
 
 
-(작성중..)
+
+
+- ls -l /usr/bin > ls-output.txt
+명령어 결과 값을 다음과 같이 저장한다는 의미.
+- ls -l /usr/bin >> ls-output.txt
+이미 파일이 존재한 경우 결과값은 기존 데이터에 append.
+
+
 
