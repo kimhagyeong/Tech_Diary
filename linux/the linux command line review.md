@@ -99,4 +99,4 @@ Processes
 - killall – Kill processes by name. 
 - shutdown – Shutdown or reboot the system. 
 
-
+(작성중..)
