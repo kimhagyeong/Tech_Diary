@@ -33,6 +33,10 @@ spark 는 분산처리. IDE 환경에서 사용 가능하도록 제공함. (visu
 Apache Zeppelin은 Spark를 통한 데이터 분석의 불편함을 Web기반의 Notebook을 통해서 해결해보고자 만들어진 어플리케이션이다.
 https://medium.com/apache-zeppelin-stories/%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-%EC%9D%BC%EA%B8%B0-2-apache-zeppelin-%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80-f3a520297938
 
+<br/><br/><br/><br/>
  
+ 
+BIG DATA 관련 사이트 모음_하둡/연동 Project/Nosql : https://1004jonghee.tistory.com/entry/BIG-DATA-관련-사이트-모음하둡연동-ProjectNosql [Hee'World]
+https://1004jonghee.tistory.com/entry/BIG-DATA-%EA%B4%80%EB%A0%A8-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%AA%A8%EC%9D%8C%ED%95%98%EB%91%A1%EC%97%B0%EB%8F%99-ProjectNosql
  
 위 내용을 바탕으로 가상환경에 직접 하나씩 툴들을 테스트 해보자!
