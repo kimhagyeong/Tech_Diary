@@ -9,7 +9,7 @@ public cloud에서의 하둡 저장 : azure와 aws 같은 클라우드에서는 
 우분투도 리눅스를 패키징하는 회사인데 red hat과 차이점이 있다면 사용목적이 다르다. 우분투는 여러 기능을 가지고 있어 손쉽게 어플리케이션을 배포할 수 있고 레드햇은 보안에 초점을 맞추고 있다.
 https://m.blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=ki630808&logNo=221895883311&categoryNo=62&proxyReferer=
 
-Hortonworks에선 Hortonworks에는 상호 운용 가능한 세 가지 제품 라인이 있다.
+Hortonworks에선 상호 운용 가능한 세 가지 제품 라인이 있다.
 - Hortonworks Data Platform (HDP) : Apache Hadoop , Apache Hive , Apache Spark 기반
 - Hortonworks DataFlow (HDF) : Apache NiFi , Apache Storm , Apache Kafka 기반
 - Hortonworks DataPlane 서비스 (DPS) : Apache Atlas 및 Cloudbreak 및 IBM 과 같은 파트너 가 서비스를 추가 할 수 있는 플러그 형 아키텍처를 기반. 
