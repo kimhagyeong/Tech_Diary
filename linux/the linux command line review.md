@@ -23,6 +23,7 @@ mac에서는 "-reverse", 단간하게 "r"만 쓸 수 있음
 내용 출력. exit less 하려면 press "q"  
 G면 마지막 위치, g는 첫 위치  
 b면 page up, 스페이스는 page down
+간단하게 보고 싶으면 cat 명령어 사용
 
 - root, boot, bin, etc
 
@@ -57,11 +58,31 @@ cp 옵션은 -a, -r, -i, -u, -v 등이 있는데, 주로 -r 을 많이 사용한
 
 
 
+" > "  리다이렉션 기호
 
-- ls -l /usr/bin > ls-output.txt
+- ls -l /usr/bin > ls-output.txt  
 명령어 결과 값을 다음과 같이 저장한다는 의미.
-- ls -l /usr/bin >> ls-output.txt
+- ls -l /usr/bin >> ls-output.txt  
 이미 파일이 존재한 경우 결과값은 기존 데이터에 append.
 
+" | " 파이프 기호
+- ls -l /usr/bin | less  
+앞 명령어의 결과를 뒤에 나오는 명령어의 입력으로 처리하기 위해 사용하는 방법
+
+
+- echo $((2 + 2))  
+$(())를 사용해서 Arithmetic표현할 수도 있다.
+
+
+Permissions
+
+- id – Display user identity  
+- chmod – Change a file's mode  
+- umask – Set the default file permissions  
+- su – Run a shell as another user  
+- sudo – Execute a command as another user  
+- chown – Change a file's owner  
+- chgrp – Change a file's group ownership  
+- passwd – Change a user's password  
 
 
