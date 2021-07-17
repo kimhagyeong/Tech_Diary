@@ -10,9 +10,9 @@ public cloud에서의 하둡 저장 : azure와 aws 같은 클라우드에서는 
 https://m.blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=ki630808&logNo=221895883311&categoryNo=62&proxyReferer=
 
 Hortonworks에선 Hortonworks에는 상호 운용 가능한 세 가지 제품 라인이 있다.
-- Hortonworks 데이터 플랫폼 (HDP) : Apache Hadoop , Apache Hive , Apache Spark 기반
+- Hortonworks Data Platform (HDP) : Apache Hadoop , Apache Hive , Apache Spark 기반
 - Hortonworks DataFlow (HDF) : Apache NiFi , Apache Storm , Apache Kafka 기반
-- Hortonworks DataPlane 서비스 (DPS) : Apache Atlas 및 Cloudbreak 및 IBM 과 같은 파트너 가 서비스를 추가 할 수 있는 플러그 형 아키텍처를 기반
+- Hortonworks DataPlane 서비스 (DPS) : Apache Atlas 및 Cloudbreak 및 IBM 과 같은 파트너 가 서비스를 추가 할 수 있는 플러그 형 아키텍처를 기반. 
 호튼웍스 적용 example : https://kyumdoctor.tistory.com/54
 
 눈에 익은 프레임워크들이 많은데 apache hadoop, apache hive, apache spark, apache kafka 등. 앞으로 이 툴을 사용해볼 예정.
