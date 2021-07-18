@@ -64,12 +64,14 @@ mariaDB가 있으면 제거하고 mysql을 설치하면 된다.  (https://sailer
 
 <pre>
 <code>
-- MySql 5.6 버전
- - sudo yum -y install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm 
- - sudo yum install mysql-community-server 
-- 시작프로그램 등록 (하기전 sudo -i 를 해야할 수도 있다.)
- - systemctl enable mysqld
- - systemctl start mysqld
-- 시작프로그램 종료
- - systemctl stop mysqld
- 
+# MySql 5.6 버전
+ $ sudo yum -y install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm 
+ $ sudo yum install mysql-community-server 
+# 시작프로그램 등록 (하기전 sudo -i 를 해야할 수도 있다.)
+ $ systemctl enable mysqld
+ $ systemctl start mysqld
+# 시작프로그램 종료
+ $ systemctl stop mysqld
+</code>
+</pre>
+
