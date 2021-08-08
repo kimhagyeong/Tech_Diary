@@ -33,7 +33,7 @@ Hortonworks DataPlane 서비스 (DPS) : Apache Atlas 및 Cloudbreak 및 IBM 과 
 Hadoop eco 설치, 설정배포, 모니터링, Alert 등의 운영 편의성을 제공하는 오픈소스 관리 시스템 툴. 
 Ambari나 Cloudera Manager와 같은 운영툴이 없던 시절에 Hadoop 설치는 여간 까다로운 것이 아니었으며, 모니터링도 상당히 번거로웠다.  
 사실 그 당시만 해도 하둡 설치할 수 있다는 것만 해도 상당한 Know-how 였으나, 최근에는 이런 툴들이 보급 되면서 설치나 운영도 과거에 비해 상당히 장벽이 낮아졌다.  
-출처: https://datacookbook.kr/32 [DATA COOKBOOK]
+출처: https://datacookbook.kr/32 [DATA COOKBOOK]  
 출처: https://bryant.tistory.com/105?category=584415 -> centos 기반 HDP설치 가이드
   
 1. centos 에서 java 설치
@@ -68,7 +68,7 @@ mariaDB가 있으면 제거하고 mysql을 설치하면 된다.  (https://sailer
 # MySql 5.6 버전
  $ sudo yum -y install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm 
  $ sudo yum install mysql-community-server 
-# 시작프로그램 등록 (하기전 sudo -i 를 해야할 수도 있다.)
+# 시작프로그램 등록 (하기전 sudo -i 를 해야할 수도 있다. 이건 Root 환경으로 가기 위함이다.)
  $ systemctl enable mysqld
  $ systemctl start mysqld
 # 시작프로그램 종료
@@ -77,4 +77,9 @@ mariaDB가 있으면 제거하고 mysql을 설치하면 된다.  (https://sailer
  $ systemctl status mysqld
 </code>
 </pre>
-
+기본적으로 https://bryant.tistory.com/105?category=584415 -> centos 기반 HDP설치 가이드 요 출처 따라서 하면 되는데, 
+#/usr/bin/mysql_secure_installation
+이게 안되는 경우  
+#sudo mysql_secure_installation  
+을 쳐보자.  
+그 외, 안 될 때는 sudo 명령어를 쳤는지, root 환경인지 확인한다.
