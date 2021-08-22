@@ -82,4 +82,12 @@ mariaDB가 있으면 제거하고 mysql을 설치하면 된다.  (https://sailer
 이게 안되는 경우  
 #sudo mysql_secure_installation  
 을 쳐보자.  
-그 외, 안 될 때는 sudo 명령어를 쳤는지, root 환경인지 확인한다.
+그 외, 안 될 때는 sudo 명령어를 쳤는지, root 환경인지 확인한다.  
+유저정보 확인 : 
+mysql> SELECT User, Host, authentication_string FROM mysql.user;  
+나가기 : exit  
+
+hortwork 가 무료 레포 배포를 2021.1.31부로 구독제로 변경되었다고 한다.  
+따라서 올려놓은 레포를 통해 ambari를 다운받을 수 없다.  
+사용하기 위해서는 백업된 이미지를 다운받을 수 밖에 없는데, 나는 아래 페이지에서 ambari server rpm을 다운받았다.
+https://www.makeopensourcegreatagain.com/rpms/
