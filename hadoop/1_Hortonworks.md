@@ -34,7 +34,8 @@ Hadoop eco 설치, 설정배포, 모니터링, Alert 등의 운영 편의성을 
 Ambari나 Cloudera Manager와 같은 운영툴이 없던 시절에 Hadoop 설치는 여간 까다로운 것이 아니었으며, 모니터링도 상당히 번거로웠다.  
 사실 그 당시만 해도 하둡 설치할 수 있다는 것만 해도 상당한 Know-how 였으나, 최근에는 이런 툴들이 보급 되면서 설치나 운영도 과거에 비해 상당히 장벽이 낮아졌다.  
 출처: https://datacookbook.kr/32 [DATA COOKBOOK]  
-출처: https://bryant.tistory.com/105?category=584415 -> centos 기반 HDP설치 가이드
+출처: https://bryant.tistory.com/105?category=584415 -> centos 기반 HDP설치 가이드  
+centos 설치는 https://mine-it-record.tistory.com/420 이 블로그가 자세하다!
   
 1. centos 에서 java 설치
 <pre><code>
@@ -90,4 +91,5 @@ mysql> SELECT User, Host, authentication_string FROM mysql.user;
 hortwork 가 무료 레포 배포를 2021.1.31부로 구독제로 변경되었다고 한다.  
 따라서 올려놓은 레포를 통해 ambari를 다운받을 수 없다.  
 사용하기 위해서는 백업된 이미지를 다운받을 수 밖에 없는데, 나는 아래 페이지에서 ambari server rpm을 다운받았다.
-https://www.makeopensourcegreatagain.com/rpms/
+https://www.makeopensourcegreatagain.com/rpms/  
+참고로 설정하면 디폴트 어드민 암호를 사용하면 (admin/admin) 보안상 문제가 생김.  
