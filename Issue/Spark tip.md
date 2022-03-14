@@ -92,7 +92,7 @@ public void setSparkContext(JavaSparkContext sparkContext) {
 ```
 - tips :
 Bean  상태로 job parameter를 전달할 수 없다.  
-→ Bean 어노테이션을 다 지우던가, Bean 이 아닌 메소드로 javaSparkContext를 세팅한다.
+→ Bean 어노테이션을 다 지우던가, Bean 이 아닌 메소드로 javaSparkContext를 세팅한다.    
 → transient를 추가함으로써 serializable 하게 sparkConfig를 전달한다.
 
 <br/><br/><br/><br/>
@@ -137,13 +137,15 @@ GSON 으로 생긴 에러 (com.google.gson.JsonSyntaxException) 라고 해도 sp
 하지만 catch로 잡을 수 없다.. catch(SparkException) 안됨.
 
 
-- 목표 : 모든 Exception list를 받기
+- 목표 : 모든 Exception list를 받기    
 모든 Exception을 잡을 필요가 있을 때를 대비하여 한번 방안을 찾아보았다.    
 spark 의 mapToPair와 같은 run 메소드는 위 로그를 보면 알다시피 spark의 executor에서 작동된다.    
 spark의 mapToPair, map, groupBykey와 같이 translated RDD를 하는 메소드는 바로 실행되지 않고 spark에서 Action을 하는 메소드인 print, count collect 등이 호출되면 그때 동작한다.    
-그 이유는 spark 내부에서 RDD를 translate 할 때 action에 최적화하게 위해서이다.    
-  - spark 가 아닌 직접 병렬 Thread 를 선언했을 때, 병렬 Thread의 결과값을 취합해야 하는 상황일 때 Future를 사용해서 처리한다.    
-  - spark 의 경우 결과값을 serialize 하게 받아오기 위해서는 RDD 를 한번 collect() 해야 한다.
+그 이유는 spark 내부에서 RDD를 translate 할 때 action에 최적화하게 위해서이다.  
+<br/>
+  - spark RDD 를 읽은 후 다음 줄을 읽기 위해서는...     
+    - spark 가 아닌 직접 병렬 Thread 를 선언했을 때, 병렬 Thread의 결과값을 취합해야 하는 상황일 때 Future를 사용해서 처리한다.      
+    - spark 의 경우 결과값을 serialize 하게 받아오기 위해서는 RDD 를 한번 collect() 해야 한다.    
 
 
 <br/><br/>
@@ -152,19 +154,21 @@ spark의 mapToPair, map, groupBykey와 같이 translated RDD를 하는 메소드
 병렬 쓰레드에서 작업되기에 에러가 throw 될 때 catch로 잡지 않고 병렬 쓰레드 안에서 throw catch 하고(getter) 최종 sparkException으로 throw 한다.    
 
 <br/>
-(참고) spark 의 translated RDD 작업들은 한 RDD가 실패했을 때 이전 RDD로 retry를 보장해준다.    
-main try-catch에서는 내부에 exception 이 하나만 발견되어도 잡기 때문에 결론적으로 여러 exception 이 발생되더라도 하나만 잡는다.    
+(참고) spark 의 translated RDD 작업들은 한 RDD가 실패했을 때 이전 RDD로 retry를 보장해준다.    <br/>
+main try-catch에서는 내부에 exception 이 하나만 발견되어도 잡기 때문에 결론적으로 여러 exception 이 발생되더라도 하나만 잡는다.       
 당연하게도 한 spark 병렬 쓰레드에서 exception이 Throw 된다고 해서 mapToPiar 작업을 종료시킬 수 없다.    
 이는 spark 가 아니라 직접 병렬 쓰레드를 만든다고 해도 같은 현상이 일어난다.    
 
-참조 : https://anish749.github.io/spark/exception-handling-spark-data-frames/
+참조 : https://anish749.github.io/spark/exception-handling-spark-data-frames/.   
 
 
+<br/><br/><br/>
 
 
 - 삽질 1
 
-병렬 쓰레드에서 Exception을 상위 level (정확히는 상위 level이라고 하면 안된다고 함) 에서 catch 하는 방법은 stackoverflow에서 참고함 (https://stackoverflow.com/questions/6546193/how-to-catch-an-exception-from-a-thread)    
+병렬 쓰레드에서 Exception을 상위 level (정확히는 상위 level이라고 하면 안된다고 함) 에서 catch 하는 방법은 stackoverflow에서 참고함     
+(https://stackoverflow.com/questions/6546193/how-to-catch-an-exception-from-a-thread)       <br/> 
 
 방식은 exception이 발생될 때 해당 exception 클래스를 atomic 한 전역변수 리스트에 저장함.    
 
@@ -214,7 +218,7 @@ public class DetectItemProcessor implements ItemProcessor<JoinInfo, List<FileInf
 
 exception을 저장하는 전역 변수는 위와 같이 atmoic 할 수 있도록 한다.    
 exceptions 들을 전역 변수로 하는 이유는 mapToPair 는 로컬 변수를 참조할 수 없기 때문이다.    
-mapToPair를 살펴보면 아래와 같고 원래는 lamda 형식이 아닌 PairFuncion을 직접 new 생성해주어야 했다.
+mapToPair를 살펴보면 아래와 같고 원래는 lamda 형식이 아닌 PairFuncion을 직접 new 생성해주어야 했다.    
 
 ```java
 // mapToPair class
@@ -293,7 +297,7 @@ public class DetectItemProcessor implements ItemProcessor<JoinInfo, List<FileInf
 }
 ```
 
-- 그 외 시도들..
+- 그 외 시도들..    
 
 추가적으로 countdownlatch 도 시도해보았다.    
 참고 : https://www.linkedin.com/pulse/spark-launcher-amol-kale.     
@@ -302,14 +306,14 @@ sparklauncher를 만들고, SparkAppListener를 직접 생성하는데, 이때 c
 countdownlatch의 기능은 쓰레드의 상태를 보고 await 하거나 다음 작업으로 넘겨주는 등이다.    
 
 쓰레드를 await 한다고 했을 때, mapToPair가 실패했을 때 countdown을 해야할지, 성공할 때 countdown을 해야할지 모호하며     
-await 말고는 특별한 기능이 없기 때문에 적용하지 않았다.
+await 말고는 특별한 기능이 없기 때문에 적용하지 않았다.    
 
 
+<br/><br/><br/>
 
-
-+ mapToPair와 .collect().forEach의 exception 결과가 다른 이유.   
-.collect().forEach(data→{ .... }) 에서 exception이 발생했을 때는 곧바로 main catch에서 잡히며 모든 쓰레드가 종료된다.    
-
++ mapToPair와 .collect().forEach의 exception 결과가 다른 이유.     
+.collect().forEach(data→{ .... }) 에서 exception이 발생했을 때는 곧바로 main catch에서 잡히며 모든 쓰레드가 종료된다.     
+<br/>
 그 이유는 collect() 자체가 list 를 반환하며 이는 단일 쓰레드이기 때문에 가능하다.    
 
 executor 내부에서 stdout 은 사용되지 않으며 안전하게 출력되기 위해서는 .foreach를 사용할 것을 권장한다고 한다...
