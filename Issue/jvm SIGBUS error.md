@@ -5,7 +5,7 @@
 에러 로그 분석 방법 : https://docs.oracle.com/javase/7/docs/webnotes/tsg/TSG-VM/html/felog.html    
 core dump는 ulimit -c 가 0일 경우 core dump 에러문을 생성할 수 없어서 위와 같이 unlimit -c unlimited를 설정해달라는 의미    
 <br/>
-###### 안 1) 로그 파일 중에서 signal name과 frame type 을 기준으로 해결 방법 모색.   
+##### 안 1) 로그 파일 중에서 signal name과 frame type 을 기준으로 해결 방법 모색.   
 <br/>
 signal name : SIGBUS     
 
@@ -52,7 +52,7 @@ Marking this incomplete. Submitter will need to determine who/what is updating t
 
 <br/><br/>
 
-###### 안 2) frame type : C     
+##### 안 2) frame type : C     
 
 C 는 Native C frame에서 문제가 났다고 이야기하고 있다.    
 
@@ -90,7 +90,7 @@ JAVA는 GC(가비지 컬렉션) 수행 중 쓰레기로 판단된 쓰레드에 m
 <br/><br/><br/>
 
 
-###### 안 3) 디스크 문제
+##### 안 3) 디스크 문제
 
 /var/log 위치에서 ls -al 명령어를 통해 디스크 장애를 확인할 수 있다.    
 아래 스크린샷과 같이 디스크 장애가 없는 경우에는 total data 가 잘 출력되지만     
