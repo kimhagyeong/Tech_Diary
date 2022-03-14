@@ -311,7 +311,7 @@ await 말고는 특별한 기능이 없기 때문에 적용하지 않았다.
 
 <br/><br/><br/>
 
-+ mapToPair와 .collect().forEach의 exception 결과가 다른 이유.     
+? mapToPair와 .collect().forEach의 exception 결과가 다른 이유.     <br/>
 collect().forEach(data→{ .... }) 에서 exception이 발생했을 때는 곧바로 main catch에서 잡히며 모든 쓰레드가 종료된다.     
 그 이유는 collect() 자체가 list 를 반환하며 이는 단일 쓰레드이기 때문에 가능하다.    
 executor 내부에서 stdout 은 사용되지 않으며 안전하게 출력되기 위해서는 .foreach를 사용할 것을 권장한다고 한다...
