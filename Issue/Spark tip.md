@@ -144,7 +144,9 @@ spark의 mapToPair, map, groupBykey와 같이 translated RDD를 하는 메소드
 그 이유는 spark 내부에서 RDD를 translate 할 때 action에 최적화하게 위해서이다.  
 <br/>
   - spark RDD 를 읽은 후 다음 줄을 읽기 위해서는...     
+
     - spark 가 아닌 직접 병렬 Thread 를 선언했을 때, 병렬 Thread의 결과값을 취합해야 하는 상황일 때 Future를 사용해서 처리한다.      
+
     - spark 의 경우 결과값을 serialize 하게 받아오기 위해서는 RDD 를 한번 collect() 해야 한다.    
 
 
@@ -311,10 +313,11 @@ await 말고는 특별한 기능이 없기 때문에 적용하지 않았다.
 
 <br/><br/><br/>
 
-? mapToPair와 .collect().forEach의 exception 결과가 다른 이유.     <br/>
-collect().forEach(data→{ .... }) 에서 exception이 발생했을 때는 곧바로 main catch에서 잡히며 모든 쓰레드가 종료된다.     
-그 이유는 collect() 자체가 list 를 반환하며 이는 단일 쓰레드이기 때문에 가능하다.    
-executor 내부에서 stdout 은 사용되지 않으며 안전하게 출력되기 위해서는 .foreach를 사용할 것을 권장한다고 한다...
+- mapToPair와 .collect().forEach의 exception 결과가 다른 이유.     
+
+    collect().forEach(data→{ .... }) 에서 exception이 발생했을 때는 곧바로 main catch에서 잡히며 모든 쓰레드가 종료된다.     
+    그 이유는 collect() 자체가 list 를 반환하며 이는 단일 쓰레드이기 때문에 가능하다.    
+    executor 내부에서 stdout 은 사용되지 않으며 안전하게 출력되기 위해서는 .foreach를 사용할 것을 권장한다고 한다...
 
 
 
