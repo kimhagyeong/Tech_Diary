@@ -42,7 +42,7 @@ public class ArchiverTasklet implements Tasklet {
   
 
    
-## JobBuilderFactory 에서 if문 같은 on 메소드를 활용하고 싶은데, 조건에 걸린 next 메소드의 step이 tasklet 형식이 아닌 chunk 형식일 때
+## JobBuilderFactory 에서 if문 같은 on 메소드를 활용하고 싶은데,<br/>조건에 걸린 next 메소드의 step이 tasklet 형식이 아닌 chunk 형식일 때
 <br/>
 - 상황 설명 :   
 
