@@ -1,28 +1,13 @@
-### 0. SEIM, Splunk intro
+### 1. SEIM, Splunk intro
 
-사내에서 seim 도입을 위해 splunk 설치를 진행하고 있다.  
-splunk는 seim의 상위 개념이라고 이해했다. 
-사내에서는 외주를 통해 설치를 진행하고 있는데, 외주 사이트에서 seim 과 splunk에 대해서 자세히 설명해주고 있어서 간단히 컨셉을 이해하기에 좋다.   
-- SEIM : 
-  - 공식 문서 : https://www.splunk.com/en_us/data-insider/what-is-siem.html
-  - SIEM 솔루션, Enterprise Security :http://www.lint.co.kr/22
-
-- Splunk :
-  - 공식 문서 : https://www.splunk.com/en_us/about-us/why-splunk.html
-  - SIEM에서 처리하지 못하는 데이터까지 모조리 수집하고 분석할 수 있다는 내용 : http://www.lint.co.kr/19 
-
-- What Is the Concept of Splunk with SIEM? : https://www.comodo.com/is-splunk-a-siem.php
-
+SIEM은 Security information and event management 의 약자로 통합보안관제 시스템이다.  
+사내에서 보안 취약점을 예방하고자 모니터링 시스템 도입이 필요하게 되었고 elastic search, splunk 와 같이 분석 플랫폼을 siem에 도입하는 것을 시도하게 되었다.
+따라서 SIEM은 보안관제시스템을 지칭하는 용어이고, splunk는 그 솔루션 중 하나인 것이다.
 
 
 <br/><br/>
 
-
-
-### 1. SEIM vs Splunk
-- SEIM : data insight 를 얻기 위해 사용하는 GUI 인터페이스로 편리하고 다양한 기능들을 손쉽게 사용
-- Splunk : siem 보다 자율성을 제공함으로써 siem에서 검색하기 어려운 보안 부분에 대한 트래픽도 직접 작성하고 모니터링 할 수 있음.    
-보안 기능에 대해 강조가 많이 되는 편인 듯 하나, 원래는 데이터 분석 플랫폼임.    
+splunk는 보안 기능에 대해 강조가 많이 되는 편인 듯 하나, 원래는 데이터 분석 플랫폼이다.
 각종 장비에서 발생하는 데이터를 형태와 상관없이 수집하고 저장.    
     
     
