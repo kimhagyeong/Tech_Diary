@@ -234,6 +234,8 @@ https://docs.microsoft.com/ko-kr/azure/databricks/clusters/
 
 # 6. Azure Databricks SQL Administration
 
-https://docs.microsoft.com/ko-kr/azure/databricks/scenarios/sql/
+https://docs.microsoft.com/ko-kr/azure/databricks/scenarios/sql/    
 
-Databrcicks 에서 SQL 은 databricks workspace 에서 사용하거나 SQL UI 에서 사용할 수 있다.
+https://docs.microsoft.com/en-us/azure/databricks/sql/api/    
+
+single user 에서 권한을 설정할때 origin sql 과 동일하게 grant option을 사용한다.
